@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+    <h1>Article</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ article.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ article.titre }}</td>
+            </tr>
+            <tr>
+                <th>Texte</th>
+                <td>{{ article.texte }}</td>
+            </tr>
+            <tr>
+                <th>Url_video</th>
+                <td>{{ article.urlVideo }}</td>
+            </tr>
+            <tr>
+                <th>Url_video2</th>
+                <td>{{ article.urlVideo2 }}</td>
+            </tr>
+            <tr>
+                <th>Url_video3</th>
+                <td>{{ article.urlVideo3 }}</td>
+            </tr>
+            <tr>
+                <th>Url_video4</th>
+                <td>{{ article.urlVideo4 }}</td>
+            </tr>
+            <tr>
+                <th>Url_img</th>
+                <td>{{ article.urlImg }}</td>
+            </tr>
+            <tr>
+                <th>Url_img2</th>
+                <td>{{ article.urlImg2 }}</td>
+            </tr>
+            <tr>
+                <th>Url_img3</th>
+                <td>{{ article.urlImg3 }}</td>
+            </tr>
+            <tr>
+                <th>Url_img4</th>
+                <td>{{ article.urlImg4 }}</td>
+            </tr>
+            <tr>
+                <th>Url_sound</th>
+                <td>{{ article.urlSound }}</td>
+            </tr>
+            <tr>
+                <th>Url_sound2</th>
+                <td>{{ article.urlSound2 }}</td>
+            </tr>
+            <tr>
+                <th>Url_sound3</th>
+                <td>{{ article.urlSound3 }}</td>
+            </tr>
+            <tr>
+                <th>Url_sound4</th>
+                <td>{{ article.urlSound4 }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ article.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_index') }}">back to list</a>
+
+    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+
+    {{ include('article/_delete_form.html.twig') }}
+{% endblock %}

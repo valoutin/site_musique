@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article index{% endblock %}
+
+{% block body %}
+    <h1>Article index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Texte</th>
+                <th>Url_video</th>
+                <th>Url_video2</th>
+                <th>Url_video3</th>
+                <th>Url_video4</th>
+                <th>Url_img</th>
+                <th>Url_img2</th>
+                <th>Url_img3</th>
+                <th>Url_img4</th>
+                <th>Url_sound</th>
+                <th>Url_sound2</th>
+                <th>Url_sound3</th>
+                <th>Url_sound4</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.id }}</td>
+                <td>{{ article.titre }}</td>
+                <td>{{ article.texte }}</td>
+                <td>{{ article.urlVideo }}</td>
+                <td>{{ article.urlVideo2 }}</td>
+                <td>{{ article.urlVideo3 }}</td>
+                <td>{{ article.urlVideo4 }}</td>
+                <td>{{ article.urlImg }}</td>
+                <td>{{ article.urlImg2 }}</td>
+                <td>{{ article.urlImg3 }}</td>
+                <td>{{ article.urlImg4 }}</td>
+                <td>{{ article.urlSound }}</td>
+                <td>{{ article.urlSound2 }}</td>
+                <td>{{ article.urlSound3 }}</td>
+                <td>{{ article.urlSound4 }}</td>
+                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ article.status }}</td>
+                <td>
+                    <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
+                    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="19">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_new') }}">Create new</a>
+{% endblock %}
