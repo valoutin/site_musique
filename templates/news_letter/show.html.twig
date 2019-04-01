@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NewsLetter{% endblock %}
+
+{% block body %}
+    <h1>NewsLetter</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ news_letter.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ news_letter.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ news_letter.prenom }}</td>
+            </tr>
+            <tr>
+                <th>News</th>
+                <td>{{ news_letter.news }}</td>
+            </tr>
+            <tr>
+                <th>Url_img</th>
+                <td>{{ news_letter.urlImg }}</td>
+            </tr>
+            <tr>
+                <th>Url_video</th>
+                <td>{{ news_letter.urlVideo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('news_letter_index') }}">back to list</a>
+
+    <a href="{{ path('news_letter_edit', {'id': news_letter.id}) }}">edit</a>
+
+    {{ include('news_letter/_delete_form.html.twig') }}
+{% endblock %}
