@@ -6,16 +6,18 @@ use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ContactType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titre')
-            ->add('mail')
-            ->add('resquest')
-            ->add('raison_sociale')
+            ->add('titre', TextType::class)
+            ->add('mail', EmailType::class)
+            ->add('resquest', TextType::class)
+            ->add('raison_sociale', TextType::class)
         ;
     }
 
