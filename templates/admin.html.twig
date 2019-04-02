@@ -39,6 +39,11 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
+          <a class="nav-link" href="{{ path('home') }}">
+            <i class="fas fa-home"></i>
+            <span>Retour à l'acceuil</span></a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="{{ path('admin') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
@@ -46,7 +51,12 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ path('user_index') }}">
             <i class="fas fa-user"></i>
-            <span>Utilisateur</span></a>
+            <span>Utilisateurs</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('contact_index') }}">
+            <i class="fas fa-file-signature"></i>
+            <span>Contact</span></a>
         </li>
 
         <!-- Divider -->
