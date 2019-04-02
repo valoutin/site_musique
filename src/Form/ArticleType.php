@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ArticleType extends AbstractType
 {
@@ -17,7 +18,7 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('titre', TextType::class)
-            ->add('texte', TextType::class)
+            ->add('texte', TextareaType::class)
             ->add('url_video', UrlType::class)
             ->add('url_video2', UrlType::class)
             ->add('url_video3', UrlType::class)
