@@ -19,6 +19,24 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
+    public function countUser()
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('SELECT COUNT(u.id) FROM App\Entity\User u');
+        $count = $query->getSingleScalarResult();
+        return $count;
+    }
+    public function selectManyUser($off, $lim = 10)
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('SELECT u FROM
+                                  App\Entity\User u
+                                  ORDER BY u.id DESC')
+                                  ->setFirstResult($off)
+                                  ->setMaxResults($lim);
+        return $query->getResult();
+    }
+
     // /**
     //  * @return User[] Returns an array of User objects
     //  */
