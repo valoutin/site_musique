@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use JasonGrimes\Paginator;
 
 /**
  * @Route("admin/contact")
@@ -18,11 +19,21 @@ class ContactController extends AbstractController
     /**
      * @Route("/", name="contact_index", methods={"GET"})
      */
-    public function index(ContactRepository $contactRepository): Response
+    public function index(ContactRepository $contactRepository, Request $request): Response
     {
-        return $this->render('contact/index.html.twig', [
-            'contacts' => $contactRepository->findAll(),
-        ]);
+      $totalItems = $contactRepository->countContact();
+      $itemsPerPage = 10;
+      $currentPage = $request->query->get('page', 1);
+      $urlPattern = '?page=(:num)';
+      $limit = 10;
+      $offset = ($currentPage * $limit) - $limit;
+
+      $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
+
+      return $this->render('contact/index.html.twig', [
+          'contacts' => $contactRepository->selectManyContact($offset),
+          'paginator' => $paginator,
+      ]);
     }
 
     /**

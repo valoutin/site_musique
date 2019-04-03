@@ -31,7 +31,7 @@ class UserRepository extends ServiceEntityRepository
         $em = $this->getEntityManager();
         $query = $em->createQuery('SELECT u FROM
                                   App\Entity\User u
-                                  ORDER BY u.id DESC')
+                                  ORDER BY u.id ASC')
                                   ->setFirstResult($off)
                                   ->setMaxResults($lim);
         return $query->getResult();
