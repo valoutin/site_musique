@@ -23,6 +23,7 @@ class UserFixtures extends Fixture
               'michel'
           ));
           $user_admin->setRoles(['ROLE_SUPER_ADMIN']);
+          $user_admin->setToken();
           $manager->persist($user_admin);
 
 
@@ -37,6 +38,7 @@ class UserFixtures extends Fixture
                   $user,
                   'michel'
               ));
+            $user->setToken();
             $manager->persist($user);
           }
           $manager->flush();

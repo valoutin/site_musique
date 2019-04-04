@@ -157,10 +157,14 @@ class User implements UserInterface
         return $this->token;
     }
 
-    public function setToken(string $token): self
+    public function setToken()
     {
-        $this->token = $token;
+        $strings = 'azertTYUIOplqsdfg2654786589BVDSqksppkfdsq';
+        $token = '';
+        for ($i=0; $i < 100; $i++) {
+          $token .= $strings[rand(0, strlen($strings) - 1)];
+        }
 
-        return $this;
+        $this->token = $token;
     }
 }
