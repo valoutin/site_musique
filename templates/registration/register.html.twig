@@ -38,26 +38,22 @@
           </div>
         </div>
         <div class="row justify-content-md-center">
-          <div class="col col-lg-2">
+          <div class="col col-lg-3">
             <div class="form-group">
               {{ form_row(registrationForm.password.first) }}
             </div>
           </div>
         </div>
         <div class="row justify-content-md-center">
-          <div class="col col-lg-2">
+          <div class="col col-lg-3">
             <div class="form-group">
               {{ form_row(registrationForm.password.second) }}
             </div>
           </div>
         </div>
-        <div class="row btn-register">
-          <div class="col col-lg-2">
-            <div class="form-group">
-              <button class="btn btn-primary btn-lg">S'inscrire</button>
-            </div>
-          </div>
-        </div>
+        
+        <button class="btn btn-primary btn-lg btn-register">S'inscrire</button>
+
     {{ form_end(registrationForm) }}
 
 {% endblock %}

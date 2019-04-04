@@ -28,6 +28,10 @@ security:
             guard:
                 authenticators:
                     - App\Security\LoginAuthenticator
+            remember_me:
+                secret:   '%kernel.secret%'
+                lifetime: 3600 # 1 week in seconds
+                path:     /
 
             # activate different ways to authenticate
 
