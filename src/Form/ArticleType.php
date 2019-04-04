@@ -8,7 +8,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
@@ -31,14 +30,6 @@ class ArticleType extends AbstractType
             ->add('url_sound2', UrlType::class)
             ->add('url_sound3', UrlType::class)
             ->add('url_sound4', UrlType::class)
-            ->add('created_at', DateType::class, [
-              'widget' => 'single_text',
-              'format' => 'dd-MM-yyyy'
-            ])
-            ->add('updated_at', DateType::class, [
-              'widget' => 'single_text',
-              'format' => 'dd-MM-yyyy'
-            ])
             ->add('status', ChoiceType::class, array(
               'choices'  => [
                       'publié'    => 'publié',
