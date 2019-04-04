@@ -45,6 +45,11 @@ class User implements UserInterface
      */
     private $prenom;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $token;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -143,6 +148,18 @@ class User implements UserInterface
     public function setPrenom(string $prenom): self
     {
         $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getToken(): ?string
+    {
+        return $this->token;
+    }
+
+    public function setToken(string $token): self
+    {
+        $this->token = $token;
 
         return $this;
     }

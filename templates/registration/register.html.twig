@@ -3,16 +3,61 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+    <div class="title-register">
+      <h1>Inscription</h1>
+      <small class="form-text text-muted">Vos données resterons confidentiel et ne serons pas partager.</small>
+    </div>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.nom) }}
-        {{ form_row(registrationForm.prenom) }}
-        {{ form_row(registrationForm.email.first) }}
-        {{ form_row(registrationForm.email.second) }}
-        {{ form_row(registrationForm.password.first) }}
-        {{ form_row(registrationForm.password.second) }}
-
-        <button class="btn">Register</button>
+      {{ form_start(registrationForm) }}
+        <div class="row justify-content-md-center">
+          <div class="col col-lg-2">
+            <div class="form-group">
+              {{ form_row(registrationForm.nom) }}
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-md-center">
+          <div class="col col-lg-2">
+            <div class="form-group">
+              {{ form_row(registrationForm.prenom) }}
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-md-center">
+          <div class="col col-lg-3">
+            <div class="form-group">
+              {{ form_row(registrationForm.email.first) }}
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-md-center">
+          <div class="col col-lg-3">
+            <div class="form-group">
+              {{ form_row(registrationForm.email.second) }}
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-md-center">
+          <div class="col col-lg-2">
+            <div class="form-group">
+              {{ form_row(registrationForm.password.first) }}
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-md-center">
+          <div class="col col-lg-2">
+            <div class="form-group">
+              {{ form_row(registrationForm.password.second) }}
+            </div>
+          </div>
+        </div>
+        <div class="row btn-register">
+          <div class="col col-lg-2">
+            <div class="form-group">
+              <button class="btn btn-primary btn-lg">S'inscrire</button>
+            </div>
+          </div>
+        </div>
     {{ form_end(registrationForm) }}
+
 {% endblock %}
