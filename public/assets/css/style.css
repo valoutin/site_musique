@@ -36,6 +36,29 @@
   text-align: center;
 }
 
+.forget-password{
+  display: inline-block;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 20px;
+  font-size: 1.2em;
+}
+
+/*====== FORGET PASSWORD ======*/
+
+.title-forget-password{
+  text-align: center;
+  text-decoration: underline;
+  margin: 50px;
+  font-size: 1.8em;
+}
+
+.btn-forget-password{
+  margin-left: 50%;
+  margin-top: 20px;
+  transform: translateX(-50%);
+}
+
 /*====== CONTACT ======*/
 
 .title-contact{
@@ -48,4 +71,10 @@
 .checkbox-contact{
   font-size: 1.2em;
   text-align: center;
+}
+
+.btn-contact{
+  margin-left: 50%;
+  margin-top: 20px;
+  transform: translateX(-50%);
 }

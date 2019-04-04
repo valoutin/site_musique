@@ -30,6 +30,17 @@ class DefaultController extends AbstractController
     {
         $contact = new Contact;
         $form = $this->createForm(ContactType::class, $contact);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+          $entityManager = $this->getDoctrine()->getManager();
+          $entityManager->persist($contact);
+          $entityManager->flush();
+
+          $this->addFlash('info', 'Le Message a bien été envoyé.');
+
+          return $this->redirectToRoute('home');
+      }
 
         return $this->render('default/contact.html.twig', [
             'contact' => $contact,
