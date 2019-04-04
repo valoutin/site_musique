@@ -5,8 +5,9 @@
 
 .title-register{
   text-align: center;
+  text-decoration: underline;
   margin: 50px;
-  font-size: 1.8em;
+  font-size: 1.3em;
 }
 
 .btn-register{
@@ -19,6 +20,7 @@
 
 .title-connexion{
   text-align: center;
+  text-decoration: underline;
   margin: 50px;
   font-size: 1.8em;
 }
@@ -32,4 +34,13 @@
 .checkbox-remenber{
   font-size: 1.2em;
   text-align: center;
+}
+
+/*====== CONTACT ======*/
+
+.title-contact{
+  text-align: center;
+  text-decoration: underline;
+  margin: 50px;
+  font-size: 1.8em;
 }

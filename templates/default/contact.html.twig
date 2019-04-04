@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+  <h1 class="title-contact">Contact</h1>
+
+    {{ form_start(form) }}
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-3">
+          <div class="form-group">
+            {{ form_row(form.titre) }}
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-3">
+          <div class="form-group">
+            {{ form_row(form.mail) }}
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-4">
+          <div class="form-group">
+            {{ form_row(form.resquest) }}
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-2">
+          <div class="form-group">
+            {{ form_row(form.raison_sociale) }}
+          </div>
+        </div>
+      </div>
+    {{ form_end(form) }}
+
+{% endblock %}

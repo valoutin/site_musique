@@ -1,59 +1,59 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}{% endblock %}
 
 {% block body %}
-    <div class="title-register">
-      <h1>Inscription</h1>
-      <small class="form-text text-muted">Vos données resterons confidentiel et ne serons pas partager.</small>
-    </div>
+  <div class="title-register">
+    <h1>Inscription</h1>
+    <small class="form-text text-muted">Toutes vos données resterons confidentielle.</small>
+  </div>
 
-      {{ form_start(registrationForm) }}
-        <div class="row justify-content-md-center">
-          <div class="col col-lg-2">
-            <div class="form-group">
-              {{ form_row(registrationForm.nom) }}
-            </div>
+    {{ form_start(registrationForm) }}
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-2">
+          <div class="form-group">
+            {{ form_row(registrationForm.nom) }}
           </div>
         </div>
-        <div class="row justify-content-md-center">
-          <div class="col col-lg-2">
-            <div class="form-group">
-              {{ form_row(registrationForm.prenom) }}
-            </div>
+      </div>
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-2">
+          <div class="form-group">
+            {{ form_row(registrationForm.prenom) }}
           </div>
         </div>
-        <div class="row justify-content-md-center">
-          <div class="col col-lg-3">
-            <div class="form-group">
-              {{ form_row(registrationForm.email.first) }}
-            </div>
+      </div>
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-3">
+          <div class="form-group">
+            {{ form_row(registrationForm.email.first) }}
           </div>
         </div>
-        <div class="row justify-content-md-center">
-          <div class="col col-lg-3">
-            <div class="form-group">
-              {{ form_row(registrationForm.email.second) }}
-            </div>
+      </div>
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-3">
+          <div class="form-group">
+            {{ form_row(registrationForm.email.second) }}
           </div>
         </div>
-        <div class="row justify-content-md-center">
-          <div class="col col-lg-3">
-            <div class="form-group">
-              {{ form_row(registrationForm.password.first) }}
-            </div>
+      </div>
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-3">
+          <div class="form-group">
+            {{ form_row(registrationForm.password.first) }}
           </div>
         </div>
-        <div class="row justify-content-md-center">
-          <div class="col col-lg-3">
-            <div class="form-group">
-              {{ form_row(registrationForm.password.second) }}
-            </div>
+      </div>
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-3">
+          <div class="form-group">
+            {{ form_row(registrationForm.password.second) }}
           </div>
         </div>
-        
-        <button class="btn btn-primary btn-lg btn-register">S'inscrire</button>
+      </div>
 
-    {{ form_end(registrationForm) }}
+      <button class="btn btn-primary btn-lg btn-register">S'inscrire</button>
+
+  {{ form_end(registrationForm) }}
 
 {% endblock %}
