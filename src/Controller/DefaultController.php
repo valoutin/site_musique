@@ -5,6 +5,9 @@ namespace App\Controller;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Repository\ContactRepository;
+use App\EventListener;
+
+/*====== USE DE BASE ======*/
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -46,5 +49,14 @@ class DefaultController extends AbstractController
             'contact' => $contact,
             'form'    => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/evenements", name="event")
+     */
+    public function event()
+    {
+      return $this->render('default/event.html.twig', [
+      ]);
     }
 }
