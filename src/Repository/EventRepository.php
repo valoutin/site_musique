@@ -19,6 +19,24 @@ class EventRepository extends ServiceEntityRepository
         parent::__construct($registry, Event::class);
     }
 
+    public function countEvent()
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('SELECT COUNT(u.id) FROM App\Entity\Event u');
+        $count = $query->getSingleScalarResult();
+        return $count;
+    }
+    public function selectManyEvent($off, $lim = 10)
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('SELECT u FROM
+                                  App\Entity\Event u
+                                  ORDER BY u.id ASC')
+                                  ->setFirstResult($off)
+                                  ->setMaxResults($lim);
+        return $query->getResult();
+    }
+
     // /**
     //  * @return Event[] Returns an array of Event objects
     //  */

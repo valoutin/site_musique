@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use JasonGrimes\Paginator;
 
 /**
  * @Route("admin/event")
@@ -18,10 +19,20 @@ class EventController extends AbstractController
     /**
      * @Route("/", name="event_index", methods={"GET"})
      */
-    public function index(EventRepository $eventRepository): Response
+    public function index(EventRepository $eventRepository, Request $request): Response
     {
+        $totalItems = $eventRepository->countEvent();
+        $itemsPerPage = 10;
+        $currentPage = $request->query->get('page', 1);
+        $urlPattern = '?page=(:num)';
+        $limit = 10;
+        $offset = ($currentPage * $limit) - $limit;
+
+        $paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
+
         return $this->render('event/index.html.twig', [
-            'events' => $eventRepository->findAll(),
+            'events' => $eventRepository->selectManyEvent($offset),
+            'paginator' => $paginator,
         ]);
     }
 

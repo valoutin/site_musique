@@ -19,6 +19,24 @@ class ArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, Article::class);
     }
 
+    public function countArticle()
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('SELECT COUNT(u.id) FROM App\Entity\Article u');
+        $count = $query->getSingleScalarResult();
+        return $count;
+    }
+    public function selectManyArticle($off, $lim = 10)
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('SELECT u FROM
+                                  App\Entity\Article u
+                                  ORDER BY u.id ASC')
+                                  ->setFirstResult($off)
+                                  ->setMaxResults($lim);
+        return $query->getResult();
+    }
+
     // /**
     //  * @return Article[] Returns an array of Article objects
     //  */
