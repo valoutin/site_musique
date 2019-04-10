@@ -120,7 +120,7 @@
   float: left;
   padding: 8px 16px;
   text-decoration: none;
-  border: 1px solid #ddd; /* Gray */
+  border: 1px solid #ddd;
 }
 
 .pagination li.disabled {
@@ -136,7 +136,7 @@
   color: white;
 }
 
-.pagination a:hover:not(.active) {background-color: #ddd;}
+.pagination a:hover:not(.active) {background-color: #E6E6FA;}
 
 .pagination a {
   transition: background-color .3s;

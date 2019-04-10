@@ -10,8 +10,8 @@
             <tr>
                 <th>Titre</th>
                 <th>Mail</th>
-                <th>Resquest</th>
-                <th>Details</th>
+                <th>Demande/th>
+                <th>Détail</th>
                 <th>Suppression</th>
             </tr>
         </thead>
@@ -21,7 +21,7 @@
                 <td>{{ contact.titre }}</td>
                 <td>{{ contact.mail }}</td>
                 <td>{{ contact.resquest|striptags|slice(0, 30)|raw }}</td>
-                <td><a class="btn btn-info" href="{{ path('contact_show', {'id': contact.id}) }}">Details</a></td>
+                <td><a class="btn btn-info" href="{{ path('contact_show', {'id': contact.id}) }}">Détail</a></td>
                 <td>{{ include('contact/_delete_form.html.twig') }}</td>
             </tr>
         {% else %}
