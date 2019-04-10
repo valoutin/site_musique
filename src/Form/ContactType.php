@@ -18,7 +18,9 @@ class ContactType extends AbstractType
             ->add('titre', TextType::class)
             ->add('mail', EmailType::class)
             ->add('resquest', TextareaType::class)
-            ->add('raison_sociale', TextType::class)
+            ->add('raison_sociale', TextType::class, array(
+              'required' => false,
+            ))
         ;
     }
 
