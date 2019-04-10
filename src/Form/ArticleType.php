@@ -30,6 +30,15 @@ class ArticleType extends AbstractType
             ->add('url_sound2', UrlType::class)
             ->add('url_sound3', UrlType::class)
             ->add('url_sound4', UrlType::class)
+            ->add('type', ChoiceType::class, array(
+              'choices'  => [
+                      'article'    => 'article',
+                      'news'       => 'news',
+                      'video'      => 'video',
+                      'galerie'    => 'galerie',
+                ],
+                'expanded' => true,
+            ))
             ->add('status', ChoiceType::class, array(
               'choices'  => [
                       'publié'    => 'publié',

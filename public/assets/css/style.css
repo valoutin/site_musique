@@ -136,7 +136,10 @@
   color: white;
 }
 
-.pagination a:hover:not(.active) {background-color: #E6E6FA;}
+.pagination a:hover:not(.active) {
+  background-color: #E6E6FA;
+  text-decoration: none;
+}
 
 .pagination a {
   transition: background-color .3s;
