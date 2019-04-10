@@ -18,16 +18,25 @@ class Event
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank
      */
     private $start;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank
      */
     private $end;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 5,
+     *      max = 100,
+     *      minMessage = "Le titre doit faire plus de {{ limit }} caracters.",
+     *      maxMessage = "Le titre doit faire moins de {{ limit }} caracters."
+     * )
      */
     private $titre;
 

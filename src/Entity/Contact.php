@@ -18,16 +18,37 @@ class Contact
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 5,
+     *      max = 100,
+     *      minMessage = "Le titre doit faire plus de {{ limit }} caracters.",
+     *      maxMessage = "Le titre doit faire moins de {{ limit }} caracters."
+     * )
      */
     private $titre;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 120,
+     *      minMessage = "Votre mail doit faire plus de {{ limit }} caracters.",
+     *      maxMessage = "Votre mail doit faire moins de {{ limit }} caracters."
+     * )
      */
     private $mail;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 20,
+     *      max = 800,
+     *      minMessage = "Votre demande doit faire plus de {{ limit }} caracters.",
+     *      maxMessage = "Votre demande doit faire moins de {{ limit }} caracters."
+     * )
      */
     private $resquest;
 

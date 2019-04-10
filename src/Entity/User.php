@@ -21,6 +21,13 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 120,
+     *      minMessage = "Votre mail doit faire plus de {{ limit }} caracters.",
+     *      maxMessage = "Votre mail doit faire moins de {{ limit }} caracters."
+     * )
      */
     private $email;
 
@@ -32,16 +39,37 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 100,
+     *      minMessage = "Votre mot de passe doit faire plus de {{ limit }} caracters.",
+     *      maxMessage = "Votre mot de passe doit faire moins de {{ limit }} caracters."
+     * )
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 5,
+     *      max = 100,
+     *      minMessage = "Votre nom doit faire plus de {{ limit }} caracters.",
+     *      maxMessage = "Votre nom doit faire moins de {{ limit }} caracters."
+     * )
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 5,
+     *      max = 100,
+     *      minMessage = "Votre prenom doit faire plus de {{ limit }} caracters.",
+     *      maxMessage = "Votre prenom doit faire moins de {{ limit }} caracters."
+     * )
      */
     private $prenom;
 
