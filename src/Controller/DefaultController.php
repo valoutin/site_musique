@@ -2,10 +2,17 @@
 
 namespace App\Controller;
 
+/*====== USE EVENT ======*/
+
+use App\Entity\Event;
+use App\Form\EventType;
+use App\Repository\EventRepository;
+
+/*====== USE CONTACT ======*/
+
 use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Repository\ContactRepository;
-use App\EventListener;
 
 /*====== USE DE BASE ======*/
 
@@ -19,10 +26,25 @@ class DefaultController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index()
+    public function index(Request $request, EventRepository $eventRepository, ContactRepository $contactRepository)
     {
+      $contact = new Contact;
+      $form_contact = $this->createForm(ContactType::class, $contact);
+      $form_contact->handleRequest($request);
+
+        if ($form_contact->isSubmitted() && $form_contact->isValid()) {
+          $entityManager = $this->getDoctrine()->getManager();
+          $entityManager->persist($contact);
+          $entityManager->flush();
+
+          $this->addFlash('info', 'Le Message a bien été envoyé.');
+        }
+
         return $this->render('default/index.html.twig', [
             'controller_name' => 'DefaultController',
+            'events' => $eventRepository->selectManyEvent(0, 5),
+            'contact' => $contact,
+            'form_contact' => $form_contact ->createView(),
         ]);
     }
 
@@ -31,32 +53,8 @@ class DefaultController extends AbstractController
      */
     public function contact(Request $request): Response
     {
-        $contact = new Contact;
-        $form = $this->createForm(ContactType::class, $contact);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-          $entityManager = $this->getDoctrine()->getManager();
-          $entityManager->persist($contact);
-          $entityManager->flush();
-
-          $this->addFlash('info', 'Le Message a bien été envoyé.');
-
-          return $this->redirectToRoute('home');
-      }
-
-        return $this->render('default/contact.html.twig', [
-            'contact' => $contact,
-            'form'    => $form->createView(),
-        ]);
     }
 
-    /**
-     * @Route("/evenements", name="event")
-     */
-    public function event()
-    {
-      return $this->render('default/event.html.twig', [
-      ]);
-    }
+
 }

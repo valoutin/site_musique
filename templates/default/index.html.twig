@@ -4,18 +4,90 @@
 
 {% block body %}
 
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="d-block w-100" src="https://media.istockphoto.com/vectors/skull-and-wings-for-rock-music-illustration-vector-id974789284" alt="First slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="https://i.pinimg.com/originals/a6/30/12/a630123849dde1e3eb6340d8fbd7a42a.jpg" alt="Second slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="http://st.gde-fon.com/wallpapers_original/29778_igraem-rok_or_rock-on_1024x768_www.Gde-Fon.com.jpg" alt="Third slide">
-      </div>
-    </div>
+  <h1>Site Musique</h1>
+
+  <div class="img-biographie">
+    <img src="https://media.gettyimages.com/vectors/abstract-artistic-sound-background-vector-id483996788" alt="">
   </div>
+
+  <section id="biographie">
+    <p class="bigraphie-texte">Victor Hugo est un poète, dramaturge et prosateur romantique français, né le 26 février 1802 à Besançon et mort le 22 mai 1885 à Paris. Il est considéré comme l'un des plus importants écrivains de langue française. Il est aussi une personnalité politique et un intellectuel engagé qui a joué un rôle majeur dans l'histoire du XIXe siècle.
+      Victor Hugo occupe une place marquante dans l'histoire des lettres françaises au XIXe siècle, dans des genres et des domaines d'une remarquable variété. Il est poète lyrique avec des recueils comme Odes et Ballades (1826), Les Feuilles d'automne (1831) ou Les Contemplations (1856), mais il est aussi poète engagé contre Napoléon III dans Les Châtiments (1853) ou encore poète épique avec La Légende des siècles (1859 et 1877).
+      Il est également un romancier du peuple qui rencontre un grand succès populaire avec notamment Notre-Dame de Paris (1831), et plus encore avec Les Misérables (1862). Au théâtre, il expose sa théorie du drame romantique dans sa préface de Cromwell en 1827 et l'illustre principalement avec Hernani en 1830 et Ruy Blas en 1838, mais aussi Lucrèce Borgia et Le Roi s'amuse.
+      Son ouvre multiple comprend aussi des discours politiques à la Chambre des pairs, à l'Assemblée constituante et à l'Assemblée législative, notamment sur la peine de mort, l'école ou l'Europe, des récits de voyages (Le Rhin, 1842, ou Choses vues, posthumes, 1887 et 1890), et une correspondance abondante.
+      Victor Hugo a fortement contribué au renouvellement de la poésie et du théâtre. Il a été admiré par ses contemporains et l'est encore, mais il a aussi été contesté par certains auteurs modernes. Il a également permis à de nombreuses générations de développer une réflexion sur l'engagement de l'écrivain dans la vie politique et sociale grâce à ses multiples prises de position, lesquelles l'ont condamné à l'exil pendant les vingt ans du Second Empire.
+      Ses choix, à la fois moraux et politiques, durant la deuxième partie de sa vie, et son ouvre hors du commun ont fait de lui un personnage emblématique, que la Troisième République a honoré par des funérailles nationales, qui ont accompagné le transfert de sa dépouille au Panthéon de Paris le 1er juin 1885, dix jours après sa mort.
+    </p>
+  </section>
+
+  <div class="img-contact">
+    <img src="https://media.gettyimages.com/vectors/abstract-artistic-sound-background-vector-id483996788" alt="">
+  </div>
+
+  <section id="events">
+    <p class="title-events">Evenements</p>
+
+    <table class="table">
+      <tr>
+          <th>Titre</th>
+          <th>Start</th>
+          <th>End</th>
+      </tr>
+      {% for event in events %}
+      <tr>
+          <td>{{ event.titre }}</td>
+          <td>{{ event.start ? event.start|date('Y-m-d H:i:s') : '' }}</td>
+          <td>{{ event.end ? event.end|date('Y-m-d H:i:s') : '' }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </section>
+
+  <div class="img-contact">
+    <img src="https://media.gettyimages.com/vectors/abstract-artistic-sound-background-vector-id483996788" alt="">
+  </div>
+
+  <section id="contact">
+    <p class="title-contact">Contact<p>
+
+      {{ form_start(form_contact) }}
+        <div class="row justify-content-md-center">
+          <div class="col col-lg-3">
+            <div class="form-group">
+              {{ form_row(form_contact.titre) }}
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-md-center">
+          <div class="col col-lg-3">
+            <div class="form-group">
+              {{ form_row(form_contact.mail) }}
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-md-center">
+          <div class="col col-lg-4">
+            <div class="form-group">
+              {{ form_row(form_contact.resquest) }}
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-md-center">
+          <div class="col col-lg-2">
+            <div class="form-group">
+              {{ form_row(form_contact.raison_sociale) }}
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-md-center">
+          <div class="form-group checkbox-contact">
+            <input class="form-check-input" type="checkbox" class="form-control" required="true">Confimer l'envoie
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-lg btn-contact">Envoyer</button>
+
+      {{ form_end(form_contact) }}
+    </section>
 
 {% endblock %}
