@@ -1,0 +1,10 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Edit Playlist{% endblock %}
+
+{% block body %}
+    <h1>Editer la chanson</h1>
+
+    {{ include('playlist/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+{% endblock %}
