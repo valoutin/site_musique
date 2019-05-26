@@ -2,6 +2,12 @@
 
 namespace App\Controller;
 
+/*====== USE PLAYLIST ======*/
+
+use App\Entity\Playlist;
+use App\Form\PlaylistType;
+use App\Repository\PlaylistRepository;
+
 /*====== USE EVENT ======*/
 
 use App\Entity\Event;
@@ -26,7 +32,7 @@ class DefaultController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(Request $request, EventRepository $eventRepository, ContactRepository $contactRepository)
+    public function index(Request $request, PlaylistRepository $playlistRepository, EventRepository $eventRepository, ContactRepository $contactRepository)
     {
       $contact = new Contact;
       $form_contact = $this->createForm(ContactType::class, $contact);
@@ -42,6 +48,7 @@ class DefaultController extends AbstractController
 
         return $this->render('default/index.html.twig', [
             'controller_name' => 'DefaultController',
+            'playlists' => $playlistRepository->findAll(),
             'events' => $eventRepository->selectManyEvent(0, 5),
             'contact' => $contact,
             'form_contact' => $form_contact ->createView(),
