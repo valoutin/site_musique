@@ -47,8 +47,8 @@ body .container .player {
   }
 }
 body .container .player .large-toggle-btn {
-  border: 1px solid #d9d9d9;
-  border-radius: 2px;
+  border: 2px solid #d9d9d9;
+  border-radius: 50%;
   float: left;
   font-size: 1.5em;
   height: 50px;
@@ -190,14 +190,13 @@ body .container .play-list .play-list-row {
   *zoom: 1;
 }
 body .container .play-list .play-list-row .track-title .playlist-track {
-  color: #000;
+  color: #ffffff;
   text-decoration: none;
 }
 body .container .play-list .play-list-row .track-title .playlist-track:hover {
   text-decoration: underline;
 }
 body .container .play-list .play-list-row .small-toggle-btn {
-  border: 1px solid #d9d9d9;
   border-radius: 2px;
   cursor: pointer;
   display: inline-block;

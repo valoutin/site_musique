@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
       <head>
-
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
           <title>{% block title %}Site musique{% endblock %}</title>
@@ -13,84 +12,63 @@
           <link rel="stylesheet" href="{{ asset("assets/css/style.css") }}">
           {% endblock %}
       </head>
-      <body>
-        <header>
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="{{ path('home') }}">Acceuil</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
-                {% if  (is_granted('ROLE_USER') == false) and (is_granted('ROLE_ADMIN') == false)  %}
-                  <a class="nav-item nav-link" href="{{ path('app_register') }}">S'incrire</a>
-                  <a class="nav-item nav-link" href="{{ path('app_login') }}">Connexion</a>
-                {% else %}
-                  <a class="nav-item nav-link" href="{{ path('app_logout') }}">Déconnexion</a></li>
-                {% endif %}
-                <a class="nav-item nav-link" href="#">Contact</a>
-                <a class="nav-item nav-link" href="#">Artcile</a>
-                <a class="nav-item nav-link" href="#">News</a>
-                <a class="nav-item nav-link" href="#">Evénements</a>
-                <a class="nav-item nav-link" href="#">Vidéo</a>
-                <a class="nav-item nav-link" href="#">Galerie</a>
-                <a class="nav-item nav-link" href="#">Boutique</a>
-                <a class="nav-item nav-link" href="#">Donation</a>
-                <a class="nav-item nav-link" href="#">Archive</a>
-                {% if (is_granted('ROLE_ADMIN') == true) %}
-                  <a class="nav-item nav-link" href="{{path("admin")}}">Administration</a>
-                {% endif %}
-              </div>
-            </div>
-          </nav>
+      <body id="top">
+        <header id="header">
+            <nav>
+                <ul>
+                    <li><a href="#top">Accueil</a></li>
+                    <li><a href="#biographie">Biographie</a></li>
+                    <li><a href="#musique">Musique</a></li>
+                    <li><a href="#events">Evenement</a></li>
+                    <li><a href="#photo">Galerie Photos</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    {% if (is_granted('ROLE_ADMIN') == true) %}
+                        <li><a href="{{ path('admin') }}">Admin</a></li>
+                    {% endif %}
+                    {% if  (is_granted('ROLE_USER') == false) and (is_granted('ROLE_ADMIN') == false)  %}
+                        <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                        <li><a href="{{ path('app_register') }}">Inscription</a></li>
+                    {% else %}
+                        <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
         </header>
 
         {% block body %}{% endblock %}
 
-        <footer class="section footer-classic context-dark bg-image" style="background: #2d3246;">
-        <div class="container">
-          <div class="row row-30">
-            <div class="col-md-4 col-xl-5">
-              <div class="pr-xl-4"><a class="brand" href="index.html"></a>
-                <p>We are an award-winning creative agency, dedicated to the best result in web design, promotion, business consulting, and marketing.</p>
-                <p class="rights"><span>©  </span><span class="copyright-year">2018</span><span> </span><span>Waves</span><span>. </span><span>All Rights Reserved.</span></p>
-              </div>
+        {#<div class="px_bg5"></div>#}
+        <footer id="footer">
+            <div class="wrap">
+                <div class="footer_container">
+                    <div class="footer_item footer_item1">
+                        <h2>Guide</h2>
+                        <ul>
+                            <li><a href="#">Mention Legal</a></li>
+                            <li><a href="#">Besoin d'aide ?</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer_item footer_item2">
+                        <h2>Suivez nous !</h2>
+                        <ul>
+                            <li><a href="#"><img src="assets/img/ico_facebook.png" alt=""></a></li>
+                            <li><a href="#"><img src="assets/img/ico_twitter.png" alt=""></a></li>
+                            <li><a href="#"><img src="assets/img/ico_instagram.png" alt=""></a></li>
+                        </ul>
+
+                    </div>
+                    <div class="footer_item footer_item3">
+                        <h2>lorem psudum</h2>
+                        <ul>
+                            <li><a href="">idpus testus</a></li>
+                            <li><a href="">posterus jiuduf</a></li>
+                            <li><a href="">heater podious</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="copyright"> Webyo.io @copyright tout droit réservé</p>
             </div>
-            <div class="col-md-4">
-              <h5>Contacts</h5>
-              <dl class="contact-list">
-                <dt>Address:</dt>
-                <dd>798 South Park Avenue, Jaipur, Raj</dd>
-              </dl>
-              <dl class="contact-list">
-                <dt>email:</dt>
-                <dd><a href="mailto:#">dkstudioin@gmail.com</a></dd>
-              </dl>
-              <dl class="contact-list">
-                <dt>phones:</dt>
-                <dd><a href="tel:#">+91 7568543012</a> <span>or</span> <a href="tel:#">+91 9571195353</a>
-                </dd>
-              </dl>
-            </div>
-            <div class="col-md-4 col-xl-3">
-              <h5>Links</h5>
-              <ul class="nav-list">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contacts</a></li>
-                <li><a href="#">Pricing</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="text-center center-block">
-          <a href="#"><i id="social-fb" class="fab fa-facebook-square fa-3x social"></i></a>
-          <a href="#"><i id="social-tw" class="fab fa-twitter-square fa-3x social"></i></a>
-          <a href="#"><i id="social-gp" class="fab fa-google-plus-square fa-3x social"></i></a>
-          <a href="#"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
-        </div>
-      </footer>
+        </footer>
 
         {% block javascripts %}
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
