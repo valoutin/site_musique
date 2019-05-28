@@ -73,22 +73,12 @@
 
 /*======= BIOGRAPHIE ======*/
 
-#biographie{
-  background-color: green;
-  padding: 50px 100px;
-}
-
 .biographie-texte{
   text-align: center;
   font-size: 1.2em;
 }
 
 /*====== Events ======*/
-
-#events{
-  background-color: yellow;
-  padding: 50px 100px;
-}
 
 .title-events{
   text-align: center;
@@ -98,11 +88,6 @@
 }
 
 /*====== CONTACT ======*/
-
-#contact{
-  background-color: grey;
-  padding: 50px 100px;
-}
 
 .title-contact{
   text-align: center;
@@ -323,13 +308,13 @@ section.contact {
   height: 100vh;
   padding: 100px;
   position: relative;
-  background-color: #FFCC46;
+  background-color: #AC3931;
   color: #252525; }
 
 section.contact i {
   font-size: 2em;
   display: block;
-  color: #AC3931;
+  color: #252525;
   position: absolute;
   bottom: 10px;
   left: 50%;
